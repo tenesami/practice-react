@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, } from 'react';
 
 
 const Header = () => {
@@ -58,7 +58,7 @@ function App() {
       <button onClick={() => (setSkill('javaScript'))}>Skills</button>
       <button onClick={() => (setExperiance('React'))}>Experiance</button>
 
-      
+
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
