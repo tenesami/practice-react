@@ -12,7 +12,14 @@ const Header = () => {
 const Main = (props) => {
   return (
     <section>
+
+      <img 
+        src="https://github.com/tenesami.png" 
+        height={200} style={{borderRadius: "50%"}}
+        alt="github profile photo"
+      />
     <h3> The following list are my {props.me}</h3>
+    
     <ul style={{textAlign: "left"}}>
       {myQulaityObj.map((quality) => <li key={quality.id}>{quality.myquality}</li>)}
     </ul>
@@ -29,7 +36,7 @@ const Footer = (props) => {
 
  const myQuality = [
   "creative thinker", "inspied worker", "well performer under presser"
-]
+];
 
 const myQulaityObj = myQuality.map((quality, i) => ({id: i, myquality: quality}));
 console.log(myQulaityObj);
