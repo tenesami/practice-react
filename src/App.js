@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -10,25 +9,16 @@ const Header = () => {
  )
 }
 
-const myQulaity = [
-  "creative thinker", "inspied worker", "well performer under presser"
-]
-
-myQulaity.map(qulity => console.log(qulity))
-
 const Main = (props) => {
   return (
     <section>
-    <h3> I am {props.me}</h3>
-    <ul>
-      {myQulaity.map(qulity => <li>{qulity}</li>)}
+    <h3> The following list are my {props.me}</h3>
+    <ul style={{textAlign: "left"}}>
+      {myQulaityObj.map((quality) => <li key={quality.id}>{quality.myquality}</li>)}
     </ul>
   </section>
   ) 
 }
-
-
-
 
 const Footer = (props) => {
    return (
@@ -36,11 +26,19 @@ const Footer = (props) => {
    )
  }
 
+
+ const myQuality = [
+  "creative thinker", "inspied worker", "well performer under presser"
+]
+
+const myQulaityObj = myQuality.map((quality, i) => ({id: i, myquality: quality}));
+console.log(myQulaityObj);
+
 function App() {
   return (
     <div className="App">
       <Header />
-      <Main me={"problem solver"} />
+      <Main me={"quality"} />
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
