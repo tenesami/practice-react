@@ -10,6 +10,24 @@ const Header = () => {
  )
 }
 
+const myQulaity = [
+  "creative thinker", "inspied worker", "well performer under presser"
+]
+
+myQulaity.map(qulity => console.log(qulity))
+
+const Main = (props) => {
+  return (
+    <section>
+    <h3> I am {props.me}</h3>
+    <ul>
+      {myQulaity.map(qulity => <li>{qulity}</li>)}
+    </ul>
+  </section>
+  ) 
+}
+
+
 
 
 const Footer = (props) => {
@@ -22,6 +40,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Main me={"problem solver"} />
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
