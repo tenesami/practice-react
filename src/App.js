@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from 'react';
 
 
 const Header = () => {
@@ -12,13 +13,12 @@ const Header = () => {
 const Main = (props) => {
   return (
     <section>
-
       <img 
         src="https://github.com/tenesami.png" 
         height={200} style={{borderRadius: "50%"}}
-        alt="github profile photo"
+        alt="github Avator"
       />
-    <h3> The following list are my {props.me}</h3>
+    <h3> The following list are my {props.tesfaye}</h3>
     
     <ul style={{textAlign: "left"}}>
       {myQulaityObj.map((quality) => <li key={quality.id}>{quality.myquality}</li>)}
@@ -39,13 +39,26 @@ const Footer = (props) => {
 ];
 
 const myQulaityObj = myQuality.map((quality, i) => ({id: i, myquality: quality}));
-console.log(myQulaityObj);
+//console.log(myQulaityObj);
 
 function App() {
+
+  const [skill, setSkill] = useState("God");
+  console.log(`one of my skills is ${skill}`);
+ 
+  const [expriance, setExperiance] = useState("React")
+  console.log(`I am experianced with ${expriance}`);
+
   return (
     <div className="App">
       <Header />
-      <Main me={"quality"} />
+
+      <Main tesfaye={"quality"} myQuality={myQulaityObj}/>
+
+      <button onClick={() => (setSkill('javaScript'))}>Skills</button>
+      <button onClick={() => (setExperiance('React'))}>Experiance</button>
+
+      
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
