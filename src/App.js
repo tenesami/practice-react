@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const Header = () => {
@@ -43,11 +43,22 @@ const myQulaityObj = myQuality.map((quality, i) => ({id: i, myquality: quality})
 
 function App() {
 
-  const [skill, setSkill] = useState("God");
-  console.log(`one of my skills is ${skill}`);
+  const [skill, setSkill] = useState("JS");
+  //console.log(`one of my skills is ${skill}`);
+
+  useEffect(() => {
+    console.log(`${skill} one of my skills `)
+  },[skill]);
+
  
-  const [expriance, setExperiance] = useState("React")
-  console.log(`I am experianced with ${expriance}`);
+  const [expriance, setExperiance] = useState("rails")
+  //console.log(`I am experianced with ${expriance}`);
+
+  useEffect(() => {
+    console.log(`I am experianced with ${expriance} framework`);
+  },[expriance]);
+
+
 
   return (
     <div className="App">
@@ -55,7 +66,7 @@ function App() {
 
       <Main tesfaye={"quality"} myQuality={myQulaityObj}/>
 
-      <button onClick={() => (setSkill('javaScript'))}>Skills</button>
+      <button onClick={() => (setSkill('JavaScript'))}>Skills</button>
       <button onClick={() => (setExperiance('React'))}>Experiance</button>
 
 
