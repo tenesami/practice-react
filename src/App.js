@@ -59,11 +59,11 @@ function App() {
   },[expriance]);
 
 
-  const [check, t] = useReducer(
+  const [check, toggle] = useReducer(
     (check) => !check,
     false
   );
- 
+
   
   return (
     <div className="App">
@@ -77,7 +77,7 @@ function App() {
       <input 
       type="checkbox"
       value={check}
-      onChange={t}
+      onChange={toggle}
       />
 
 
