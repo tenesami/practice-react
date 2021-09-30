@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 
 
 const Header = () => {
@@ -59,7 +59,12 @@ function App() {
   },[expriance]);
 
 
-
+  const [check, t] = useReducer(
+    (check) => !check,
+    false
+  );
+ 
+  
   return (
     <div className="App">
       <Header />
@@ -68,6 +73,16 @@ function App() {
 
       <button onClick={() => (setSkill('JavaScript'))}>Skills</button>
       <button onClick={() => (setExperiance('React'))}>Experiance</button>
+      
+      <input 
+      type="checkbox"
+      value={check}
+      onChange={t}
+      />
+
+
+      {check ? 'checked' : 'not checked'}
+
 
 
       <Footer year={new Date().getFullYear()}/>
