@@ -41,7 +41,7 @@ const Footer = (props) => {
 const myQulaityObj = myQuality.map((quality, i) => ({id: i, myquality: quality}));
 //console.log(myQulaityObj);
 
-function App() {
+function App({login}) {
 
   const [skill, setSkill] = useState("JS");
   //console.log(`one of my skills is ${skill}`);
@@ -64,6 +64,25 @@ function App() {
     false
   );
 
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${login}`)
+    .then(resp => resp.json())
+    .then(setData)
+  },[])
+
+  if(data){
+    return (
+    <div>
+      <h2>{data.login}</h2>
+      <h2>{data.name}</h2>
+      <p>{data.location}</p>
+      <img alt={data.login} src={data.avatar_url} />
+      </div>);
+  } else {
+    return <div>No user Avaliavle </div>;
+  }
   
   return (
     <div className="App">
