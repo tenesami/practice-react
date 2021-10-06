@@ -1,6 +1,8 @@
 import './App.css';
 //import React, { useState, useEffect, useReducer } from 'react';
 import React, { useState, useEffect } from 'react';
+import {Routes, Route } from "react-router-dom";
+import {Home, About, Event, Contact, NotFound} from "./pages.js"
 // const Header = () => {
 //  return (
 //   <header>
@@ -136,6 +138,13 @@ import React, { useState, useEffect } from 'react';
 function App(){
   return(
     <>
+    <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/about" element={<About />}/>
+          <Route path="/events" element={<Event/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="*" element={<NotFound/>}/>
+    </Routes>
       <h1>
         Hello React Testing Library
       </h1>
