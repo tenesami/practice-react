@@ -64,40 +64,48 @@ import React, { useState, useEffect } from 'react';
 //   );
 
 
- function App({login}) {
-  const [data, setData] = useState(null);
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+
+
+//  function App({login}) {
+//   const [data, setData] = useState(null);
+
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState(null);
 
   
-  useEffect(() => {
-    if(!login) return;
-    setLoading(true);
+//   useEffect(() => {
+//     if(!login) return;
+//     setLoading(true);
     
-    fetch(`https://api.github.com/users/${login}`)
-    .then(resp => resp.json())
-    .then(setData)
-    .then(() => setLoading(false)) //after updating the data it set to false;
-    .catch(setError);
-  },[login]) //calls login anytime data changes
+//     fetch(`https://api.github.com/users/${login}`)
+//     .then(resp => resp.json())
+//     .then(setData)
+//     .then(() => setLoading(false)) //after updating the data it set to false;
+//     .catch(setError);
+//   },[login]) //calls login anytime data changes
 
-   if(loading) return <h1>Loading...</h1>
-   if(error) 
-   return <pre>{JSON.stringify(error, null, 2)} </pre>;
-   if(!data) return null;
+//    if(loading) return <h1>Loading...</h1>
+//    if(error) 
+//    return <pre>{JSON.stringify(error, null, 2)} </pre>;
+//    if(!data) return null;
   
-    return (
-    <div>
-      <h2>{data.login}</h2>
-      <h2>{data.name}</h2>
-      <p>{data.location}</p>
-      <img alt={data.login} src={data.avatar_url} />
-    </div>
-    );
+//     return (
+//     <div>
+//       <h2>{data.login}</h2>
+//       <h2>{data.name}</h2>
+//       <p>{data.location}</p>
+//       <img alt={data.login} src={data.avatar_url} />
+//     </div>
+//     );
     
-  }
+//   }
   
+
+
+
+
+
   // return (
   //   <div className="App">
   //     <Header />
@@ -122,5 +130,17 @@ import React, { useState, useEffect } from 'react';
   //   </div>
   //);
 //}
+
+
+
+function App(){
+  return(
+    <>
+      <h1>
+        Hello React Testing Library
+      </h1>
+    </>
+  )
+}
 
 export default App;
