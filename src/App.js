@@ -2,7 +2,7 @@ import './App.css';
 //import React, { useState, useEffect, useReducer } from 'react';
 import React, { useState, useEffect } from 'react';
 import {Routes, Route } from "react-router-dom";
-import {Home, About, Event, Contact, NotFound} from "./pages.js"
+import {Home, About, Event, Contact, NotFound, Services, CompanyHistory, Location} from "./pages.js"
 // const Header = () => {
 //  return (
 //   <header>
@@ -140,7 +140,15 @@ function App(){
     <>
     <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/about" element={<About />}/>
+          <Route path="/about" element={<About />}>
+            
+              <Route path="services" element={<Services />}/>
+              <Route path="history" element={<CompanyHistory />}/>
+              <Route path="location" element={<Location />}/>
+          </Route>
+
+
+
           <Route path="/events" element={<Event/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="*" element={<NotFound/>}/>
